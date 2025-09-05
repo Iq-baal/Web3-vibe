@@ -1,0 +1,29 @@
+// 🌐 Vibe Token Game
+const readline = require('readline').createInterface({
+  input: process.stdin,
+    output: process.stdout
+    });
+
+    let myTokens = 0;
+
+    function mintToken() {
+        myTokens += 1;
+	    console.log(`✨ You minted token #${myTokens}!`);
+	    }
+
+	    function startGame() {
+	        readline.question("Do you want to mint a token? (yes/no) ", answer => {
+		        if(answer.toLowerCase() === "yes") {
+			            mintToken();
+				                // Ask again
+						            startGame();
+							            } else {
+								                console.log(`You ended the game with ${myTokens} Vibe Tokens!`);
+										            readline.close();
+											            }
+												        });
+													}
+
+													// Start the game
+													console.log("Welcome to the Web3 Vibe Token Game!");
+													startGame();
