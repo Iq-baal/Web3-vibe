@@ -1,0 +1,36 @@
+// 🌐 Vibe Token Game with Rare Tokens
+const readline = require('readline').createInterface({
+  input: process.stdin,
+    output: process.stdout
+    });
+
+    let myTokens = 0;
+
+    function mintToken() {
+        myTokens += 1;
+
+	    // 20% chance for a shiny token
+	        let isShiny = Math.random() < 0.2;
+		    if(isShiny) {
+		            console.log(`✨🌟 You minted a SHINY token #${myTokens}!`);
+			        } else {
+				        console.log(`✨ You minted token #${myTokens}`);
+					    }
+					    }
+
+					    function startGame() {
+					        readline.question("Do you want to mint a token? (yes/no) ", answer => {
+						        if(answer.toLowerCase() === "yes") {
+							            mintToken();
+								                // Ask again
+										            startGame();
+											            } else {
+												                console.log(`You ended the game with ${myTokens} Vibe Tokens!`);
+														            readline.close();
+															            }
+																        });
+																	}
+
+																	// Start the game
+																	console.log("Welcome to the Web3 Vibe Token Game!");
+																	startGame();
